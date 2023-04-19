@@ -54,6 +54,7 @@ pub(crate) async fn establish(options: &SqliteConnectOptions) -> Result<SqliteCo
     };
 
     if options.immutable {
+        filename = urlencoding::encode(filename).to_string();
         filename = format!("file:{}?immutable=true", filename);
         flags |= libsqlite3_sys::SQLITE_OPEN_URI;
     }
