@@ -21,77 +21,26 @@ migrate = ["sha2", "crc"]
 
 # databases
 all-databases = ["postgres", "mysql", "sqlite", "mssql", "any"]
-postgres = [
-    "md-5",
-    "sha2",
-    "base64",
-    "sha1",
-    "rand",
-    "hmac",
-    "futures-channel/sink",
-    "futures-util/sink",
-    "json",
-    "dirs",
-    "whoami",
-    "hkdf"
-]
-mysql = [
-    "sha1",
-    "sha2",
-    "generic-array",
-    "num-bigint",
-    "digest",
-    "rand",
-    "rsa",
-]
+postgres = ["md-5", "sha2", "base64", "sha1", "rand", "hmac", "futures-channel/sink", "futures-util/sink", "json", "dirs", "whoami", "hkdf"]
+mysql = ["sha1", "sha2", "generic-array", "num-bigint", "digest", "rand", "rsa"]
 sqlite = ["libsqlite3-sys", "futures-executor", "flume"]
 mssql = ["uuid", "encoding_rs", "regex"]
 any = []
 
 # types
-all-types = [
-    "chrono",
-    "time",
-    "bigdecimal",
-    "decimal",
-    "ipnetwork",
-    "mac_address",
-    "json",
-    "uuid",
-    "bit-vec",
-]
+all-types = ["chrono", "time", "bigdecimal", "decimal", "ipnetwork", "mac_address", "json", "uuid", "bit-vec"]
 bigdecimal = ["bigdecimal_", "num-bigint"]
 decimal = ["rust_decimal", "num-bigint"]
 json = ["serde", "serde_json"]
 
 # runtimes
 runtime-actix-native-tls = ["runtime-tokio-native-tls"]
-runtime-async-std-native-tls = [
-    "sqlx-rt/runtime-async-std-native-tls",
-    "sqlx/runtime-async-std-native-tls",
-    "_tls-native-tls",
-    "_rt-async-std",
-]
-runtime-tokio-native-tls = [
-    "sqlx-rt/runtime-tokio-native-tls",
-    "sqlx/runtime-tokio-native-tls",
-    "_tls-native-tls",
-    "_rt-tokio",
-]
+runtime-async-std-native-tls = ["sqlx-rt/runtime-async-std-native-tls", "sqlx/runtime-async-std-native-tls", "_tls-native-tls", "_rt-async-std"]
+runtime-tokio-native-tls = ["sqlx-rt/runtime-tokio-native-tls", "sqlx/runtime-tokio-native-tls", "_tls-native-tls", "_rt-tokio"]
 
 runtime-actix-rustls = ['runtime-tokio-rustls']
-runtime-async-std-rustls = [
-    "sqlx-rt/runtime-async-std-rustls",
-    "sqlx/runtime-async-std-rustls",
-    "_tls-rustls",
-    "_rt-async-std",
-]
-runtime-tokio-rustls = [
-    "sqlx-rt/runtime-tokio-rustls",
-    "sqlx/runtime-tokio-rustls",
-    "_tls-rustls",
-    "_rt-tokio"
-]
+runtime-async-std-rustls = ["sqlx-rt/runtime-async-std-rustls", "sqlx/runtime-async-std-rustls", "_tls-rustls", "_rt-async-std"]
+runtime-tokio-rustls = ["sqlx-rt/runtime-tokio-rustls", "sqlx/runtime-tokio-rustls", "_tls-rustls", "_rt-tokio"]
 
 # for conditional compilation
 _rt-async-std = []
@@ -176,6 +125,7 @@ hkdf = { version = "0.12.0", optional = true }
 event-listener = "2.5.2"
 
 dotenvy = "0.15"
+urlencoding = "2.1.2"
 
 [dev-dependencies]
 sqlx = { version = "0.6.3", path = "..", features = ["postgres", "sqlite", "mysql"] }

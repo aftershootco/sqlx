@@ -99,6 +99,7 @@ impl EstablishParams {
         }
 
         if !query_params.is_empty() {
+            filename = urlencoding::encode(&filename).to_string();
             filename = format!("file:{}?{}", filename, query_params.join("&"));
             flags |= libsqlite3_sys::SQLITE_OPEN_URI;
         }
